@@ -6,20 +6,28 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
-
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+import { UserComponent } from './user.component';
+import { UserRoutingModule } from './user-routing.module';
+import { BookRoutingModule } from '../book/book-routing.module';
 
 @NgModule({
   declarations: [
+    UserComponent,
     LoginComponent,
     LogoutComponent,
     CreateAccountComponent,
     ConfirmAccountComponent,
     UpdateAccountComponent,
-    AccountDetailComponent
+    AccountDetailComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ReactiveFormsModule,
+    RouterModule,
+    UserRoutingModule,
+    BookRoutingModule
   ]
 })
 export class UserModule { }

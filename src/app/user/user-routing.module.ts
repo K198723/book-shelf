@@ -7,15 +7,20 @@ import { CreateAccountComponent } from './create-account/create-account.componen
 import { ConfirmAccountComponent } from './confirm-account/confirm-account.component';
 import { UpdateAccountComponent } from './update-account/update-account.component';
 import { AccountDetailComponent } from './account-detail/account-detail.component';
+import { UserComponent } from './user.component';
 
 const routes: Routes = [
-  { path: 'login', component: LoginComponent },
-  { path: 'logout', component: LogoutComponent },
-  { path: 'create-account', component: CreateAccountComponent },
-  { path: 'confirm-account', component: ConfirmAccountComponent },
-  { path: 'update-account', component: UpdateAccountComponent },
-  { path: 'account-detail', component: AccountDetailComponent }
-]
+  { path: '', component: UserComponent,
+    children: [
+      { path: 'login', component: LoginComponent },
+      { path: 'logout', component: LogoutComponent },
+      { path: 'create-account', component: CreateAccountComponent },
+      { path: 'confirm-account', component: ConfirmAccountComponent },
+      { path: 'update-account', component: UpdateAccountComponent },
+      { path: 'account-detail', component: AccountDetailComponent }
+    ]
+  }
+];
 
 @NgModule({
   declarations: [],

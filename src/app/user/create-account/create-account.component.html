@@ -1,1 +1,20 @@
-<p>create-account works!</p>
+<form>
+    Name:<input type="text" [formControl]="createAccountValidate" required><br>
+    <div *ngIf="createAccountValidate.invalid && (createAccountValidate.dirty || createAccountValidate.touched)">
+        <span class="valid" *ngIf="createAccountValidate.hasError('required')">入力必須項目です。</span>
+    </div>
+    Email:<input type="text" [formControl]="createAccountValidate" required>
+    <div *ngIf="createAccountValidate.invalid && (createAccountValidate.dirty || createAccountValidate.touched)">
+        <span class="valid" *ngIf="createAccountValidate.hasError('required')">入力必須項目です。</span>
+    </div>
+    Password:<input type="text" [formControl]="createAccountValidate" required>
+    <div *ngIf="createAccountValidate.invalid && (createAccountValidate.dirty || createAccountValidate.touched)">
+        <span class="valid" *ngIf="createAccountValidate.hasError('required')">入力必須項目です。</span>
+    </div>
+    Password(type again):<input type="text" [formControl]="createAccountValidate" required>
+    <div *ngIf="createAccountValidate.invalid && (createAccountValidate.dirty || createAccountValidate.touched)">
+        <span class="valid" *ngIf="createAccountValidate.hasError('required')">入力必須項目です。</span>
+    </div>
+    <button [routerLink]="'/confirm-account'">VERIFY</button>
+</form>
+<a [routerLink]="'/login'">CANCEL</a>

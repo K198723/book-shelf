@@ -4,17 +4,23 @@ import { RouterModule, Routes } from '@angular/router';
 import { MyBookListComponent } from './my-book-list/my-book-list.component';
 import { EntireBookListComponent } from './entire-book-list/entire-book-list.component';
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookComponent } from './book.component';
 
 const routes: Routes = [
-  { path: 'my-book-list', component: MyBookListComponent },
-  { path: 'entire-book-list', component: EntireBookListComponent },
-  { path: 'book-detail', component: BookDetailComponent }
+  { path: 'book', component: BookComponent ,
+    children: [
+      { path: 'my-book-list', component: MyBookListComponent},
+      { path: 'entire-book-list', component: EntireBookListComponent },
+      { path: 'book-detail', component: BookDetailComponent },
+    ]
+  }
 ]
+
 @NgModule({
   declarations: [],
   imports: [
     CommonModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
   ],
   exports: [RouterModule]
 })

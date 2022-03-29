@@ -1,1 +1,13 @@
-<p>login works!</p>
+BookShelf Login Menu
+<form>
+    Email:<input type="text" [formControl]="loginValidate" required><br>
+    <div *ngIf="loginValidate.invalid && (loginValidate.dirty || loginValidate.touched)">
+        <span class="valid" *ngIf="loginValidate.hasError('required')">入力必須項目です。</span>
+    </div>
+    Password:<input type="text" [formControl]="loginValidate" required>
+    <div *ngIf="loginValidate.invalid && (loginValidate.dirty || loginValidate.touched)">
+        <span class="valid" *ngIf="loginValidate.hasError('required')">入力必須項目です。</span>
+    </div>
+</form>
+<button [routerLink]="'../book/my-book-list'">LOGIN</button>
+<a [routerLink]="'/create-account'">CREATE ACCOUNT</a>
